@@ -31,6 +31,7 @@ This is a project about a Bank Portal
 
 
 ## About The Project
+![Screenshot 2024-10-29 115912](https://github.com/user-attachments/assets/f4d78605-1eed-4166-9198-9e5e13adfacb)
 
 The Bank Portal web application was developed to demonstrate the capabilities of front-end & Back-end
 web technologies in creating an intuitive, responsive, and efficient banking platform. The need
