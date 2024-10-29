@@ -15,21 +15,6 @@ This is a project about a Bank Portal
 </p>
 </div>
 
-
-
-![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/navendu-pottekkat/awesome-readme?include_prereleases)
-
-
-![GitHub last commit](https://img.shields.io/github/last-commit/navendu-pottekkat/awesome-readme)
-
-
-![GitHub issues](https://img.shields.io/github/issues-raw/navendu-pottekkat/awesome-readme)
-
-
-![GitHub pull requests](https://img.shields.io/github/issues-pr/navendu-pottekkat/awesome-readme)
-
-
-
 ## About The Project
 ![Screenshot 2024-10-29 115912](https://github.com/user-attachments/assets/f4d78605-1eed-4166-9198-9e5e13adfacb)
 
