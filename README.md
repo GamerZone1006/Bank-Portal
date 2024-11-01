@@ -67,6 +67,18 @@ _Bellow are the installation steps to set-up the portal locally on your computer
 ## Roadmap
 
 Below is the Block-Diagram for web Portal : 
+<br>
+![Screenshot 2024-11-01 115645](https://github.com/user-attachments/assets/ab74ba69-10ee-495c-83cc-a0ac8d0fa78b)
+
+<br>
+
+Below is the Website Flow Chart : 
+
+<br> 
+
+![Screenshot 2024-11-01 115747](https://github.com/user-attachments/assets/a36a1db0-019b-4db1-af83-9fe5ebd09531)
+
+
  
 ## Contributing
 
