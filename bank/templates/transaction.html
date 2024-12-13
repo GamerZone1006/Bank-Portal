@@ -6,23 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Transactions - AAU Bank</title>
-    <link rel="stylesheet" href="transactions.css">
 </head>
 <style>
     ::-webkit-scrollbar {
-            width: 12px; 
-        }
-        ::-webkit-scrollbar-track {
-            background: #f4f4f4; 
-        }
-        ::-webkit-scrollbar-thumb {
-            background-color: navy; 
-            border-radius: 10px; 
-            border: 2px solid #f4f4f4; 
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background-color: #000080; 
-        }
+        width: 12px; 
+    }
+    ::-webkit-scrollbar-track {
+        background: #f4f4f4; 
+    }
+    ::-webkit-scrollbar-thumb {
+        background-color: navy; 
+        border-radius: 10px; 
+        border: 2px solid #f4f4f4; 
+    }
+    ::-webkit-scrollbar-thumb:hover {
+        background-color: #000080; 
+    }
     * {
         margin: 0;
         padding: 0;
@@ -149,13 +148,46 @@
     footer p {
         margin: 0;
     }
+    .navigation {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        background-color: #004080;
+        padding: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0);
+    }
+
+    .navigation a {
+        text-decoration: none;
+        font-size: 16px;
+        color:#004080;
+        background-color: white;
+        padding: 10px 20px;
+        border-radius: 4px;
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+    .navigation a:hover {
+        background-color: #003366;
+    }
+    .credit {
+        color: green;
+    }
+
+    .debit {
+        color: red;
+    }
 </style>
 
 <body>
     <header>
         <div class="container">
-            <h1>AAU Bank - Your Transactions</h1>
+            <h1>CHD Bank - Your Transactions</h1>
             <p>Track and manage your recent transactions easily.</p>
+        </div>
+        <div class="navigation">
+            <a href="/">Home</a>
+            <a href="{% url 'Dashboard' %}">Dashboard</a>
         </div>
     </header>
 
@@ -166,48 +198,29 @@
                 <thead>
                     <tr>
                         <th>Date</th>
+                        <th>Account</th>
                         <th>Description</th>
                         <th>Type</th>
                         <th>Amount</th>
-                        <th>Status</th>
                     </tr>
                 </thead>
                 <tbody>
+                    {% for Transaction in Transactions %}
                     <tr>
-                        <td>2024-10-01</td>
-                        <td>Amazon Purchase</td>
-                        <td>Debit</td>
-                        <td>$120.00</td>
-                        <td>Completed</td>
+                        <td>{{Transaction.timestamp}}</td>
+                        <td>{{Transaction.receiptent_no}}</td>
+                        <td>{{Transaction.about}}</td>
+                        <td>{{Transaction.transaction_type}}</td>
+                        {% if Transaction.transaction_type == 'DEPOSIT'  %}
+                                <td class="credit">₹{{Transaction.amount}}</td>
+                        {% elif Transaction.transaction_type == 'WITHDRAW' %}
+                                <td class="debit">₹{{Transaction.amount}}</td>
+                        {% elif Transaction.transaction_type == 'TRANSFER' %}
+                                <td style="color: #004080;">₹{{Transaction.amount}}</td>
+                        {% endif %}
                     </tr>
-                    <tr>
-                        <td>2024-09-28</td>
-                        <td>Salary Credit</td>
-                        <td>Credit</td>
-                        <td>$3000.00</td>
-                        <td>Completed</td>
-                    </tr>
-                    <tr>
-                        <td>2024-09-25</td>
-                        <td>Electricity Bill Payment</td>
-                        <td>Debit</td>
-                        <td>$100.00</td>
-                        <td>Completed</td>
-                    </tr>
-                    <tr>
-                        <td>2024-09-23</td>
-                        <td>Grocery Shopping</td>
-                        <td>Debit</td>
-                        <td>$85.00</td>
-                        <td>Completed</td>
-                    </tr>
-                    <tr>
-                        <td>2024-09-21</td>
-                        <td>Refund from XYZ Store</td>
-                        <td>Credit</td>
-                        <td>$40.00</td>
-                        <td>Completed</td>
-                    </tr>
+                    {% endfor %}
+                    
                 </tbody>
             </table>
         </div>

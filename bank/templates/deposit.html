@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Bank Portal</title>
+    <title>Deposit - Bank Portal</title>
 </head>
 <style>
     /* Global Styles */
@@ -23,14 +23,14 @@
         margin: 0;
     }
 
-    .login-container {
+    .deposit-container {
         display: flex;
         justify-content: center;
         align-items: center;
         height: 100vh;
     }
 
-    .login-box {
+    .deposit-box {
         background-color: #fff;
         border-radius: 8px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -106,55 +106,27 @@
     .actions button:hover {
         background-color: #003366;
     }
-
-    .actions p {
-        margin-top: 15px;
-        font-size: 14px;
-    }
-
-    .actions p a {
-        text-decoration: none;
-        color: #004080;
-    }
-
-    .actions p a:hover {
-        text-decoration: underline;
-    }
 </style>
 <body>
-    <div class="login-container">
-        <div class="login-box">
-            <a href="/" class="home-button">Home</a>
-            <h2>Login</h2>
+    <div class="deposit-container">
+        <div class="deposit-box">
+            <a href="{% url 'Homepage'%}" class="home-button">Home</a>
+            <h2>Deposit</h2>
             <form method="post">
                 {% csrf_token %}
-                <div class="input-group" aria-autocomplete="none">
-                    <label for="username">Username</label>
-                    <input type="text" id="username" name="username" required>
+                <div class="input-group">
+                    <label for="account-number">Account Number</label>
+                    <input type="text" id="account-number" name="account-number" required>
                 </div>
                 <div class="input-group">
-                    <label for="password">Password</label>
-                    <input type="password" id="password" name="password" required>
-                    <input type="checkbox" id="show-password" onclick="togglePasswordVisibility()"> Show Password
+                    <label for="deposit-amount">Deposit Amount</label>
+                    <input type="number" id="deposit-amount" name="deposit-amount" required>
                 </div>
                 <div class="actions">
-                    <button type="submit">Login</button>
-                    <p><a href="./dashboard">Forgot password?</a></p>
+                    <button type="submit">Make Deposit</button>
                 </div>
             </form>
         </div>
     </div>
-
-    <script>
-        function togglePasswordVisibility() {
-            const passwordField = document.getElementById('password');
-            const showPasswordCheckbox = document.getElementById('show-password');
-            if (showPasswordCheckbox.checked) {
-                passwordField.type = 'text';
-            } else {
-                passwordField.type = 'password';
-            }
-        }
-    </script>
 </body>
 </html>
