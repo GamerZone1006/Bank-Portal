@@ -15,22 +15,8 @@ This is a project about a Bank Portal
 </p>
 </div>
 
-
-
-![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/navendu-pottekkat/awesome-readme?include_prereleases)
-
-
-![GitHub last commit](https://img.shields.io/github/last-commit/navendu-pottekkat/awesome-readme)
-
-
-![GitHub issues](https://img.shields.io/github/issues-raw/navendu-pottekkat/awesome-readme)
-
-
-![GitHub pull requests](https://img.shields.io/github/issues-pr/navendu-pottekkat/awesome-readme)
-
-
-
 ## About The Project
+![Screenshot 2024-10-29 115912](https://github.com/user-attachments/assets/f4d78605-1eed-4166-9198-9e5e13adfacb)
 
 The Bank Portal web application was developed to demonstrate the capabilities of front-end & Back-end
 web technologies in creating an intuitive, responsive, and efficient banking platform. The need
@@ -81,6 +67,18 @@ _Bellow are the installation steps to set-up the portal locally on your computer
 ## Roadmap
 
 Below is the Block-Diagram for web Portal : 
+<br>
+![Screenshot 2024-11-01 115645](https://github.com/user-attachments/assets/ab74ba69-10ee-495c-83cc-a0ac8d0fa78b)
+
+<br>
+
+Below is the Website Flow Chart : 
+
+<br> 
+
+![Screenshot 2024-11-01 115747](https://github.com/user-attachments/assets/a36a1db0-019b-4db1-af83-9fe5ebd09531)
+
+
  
 ## Contributing
 
