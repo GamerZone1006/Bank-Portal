@@ -29,7 +29,7 @@ def loginpg(request):
         user = authenticate(username=username_user, password=password_user)
         if user :
             login(request,user)
-        #     return HttpResponse("You are loged in")
+            messages.success(request,"You are now logged in")
             return redirect("Dashboard")
         else:
             messages.error(request,"invalid Credentials")
@@ -78,11 +78,12 @@ def sign_up(request):
         if User.objects.filter(username=username).exists():
             messages.error(request,"Username exists")
             return redirect("Sign-up")
-        
-        user = User.objects.create(username=username,password=password)
-        User_reg.objects.create(user=user,account_number=ac_number,phone=phone,email=Email,account_type=ac_type,gender=gender,image=Photo,address=address,Pan=pan,aadhaar=Aadhaar,DoB=dob)
-        login(request,user)
-        return redirect("Dashboard")
+        else:
+                user = User.objects.create(username=username,password=password)
+                User_reg.objects.create(user=user,account_number=ac_number,phone=phone,email=Email,account_type=ac_type,gender=gender,image=Photo,address=address,Pan=pan,aadhaar=Aadhaar,DoB=dob)
+                login(request,user)
+                messages.success(request,"Your account was successfully created!!")
+                return redirect("Dashboard")
     
     return render(request,"./signup.html")
 
@@ -106,6 +107,7 @@ def deposit(request):
         user.save()
 
         Transactions.objects.create(user=user,transaction_type="DEPOSIT",amount=amount,receiptent_no="Self",receiptent=amount,about="Deposit")
+        messages.success(request,"Transaction Successful !!")
         return redirect("Dashboard")
 
     return render(request,"./deposit.html")
@@ -118,15 +120,15 @@ def withdrawal(request):
         user = User_reg.objects.get(account_number = account)
 
         if user.balance < amount :
-            messages.error(request,"Tu bikhari")
+            messages.error(request,"Balance Low")
             return redirect("Dashboard")
         
         else:
             user.balance -= amount
             user.save()
 
-
         Transactions.objects.create(user=user,transaction_type="WITHDRAW",amount=amount,receiptent_no="Self",receiptent=amount,about="WithDraw")
+        messages.success(request,"Transaction Successful !!")
         return redirect("Dashboard")
     return render(request,"./Withdrawal.html")
 
@@ -157,12 +159,14 @@ def Transfer(request):
             
 
         Transactions.objects.create(user=user,transaction_type="TRANSFER",amount=amount,receiptent_no=receiptent_ac,receiptent=receiptent_transfer.balance,about=discription)
+        messages.success(request,"Transaction Successful !!")
         return redirect("Dashboard")
     return render(request,"./transfer.html")
 
 # Log-out function 
 def user_logout(request):
     logout(request)
+    messages.success(request,"You are now logged out")
     return redirect('login page')
 
 

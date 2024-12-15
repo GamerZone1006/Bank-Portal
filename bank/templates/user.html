@@ -197,9 +197,9 @@
         <div class="user-info">
             <div class="profile-photo">
                 {% if User.image %}
-                <img src="/media/{{User.image}}" alt="Profile Photo">
+                    <img src="{{ User.image.url }}" alt="Profile Photo">
                 {% else %}
-                <img src="/media/User/Image/photo.jpg" alt="Profile Photo">
+                    <span>No Photo</span>
                 {% endif %}
             </div>
             <div class="details">
