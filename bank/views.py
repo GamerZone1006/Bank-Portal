@@ -80,7 +80,7 @@ def sign_up(request):
             return redirect("Sign-up")
         
         user = User.objects.create(username=username,password=password)
-        User_reg.objects.create(user=user,account_number=ac_number,phone=phone,email=Email,account_type=ac_type,gender=gender,address=address,image=Photo,Pan=pan,aadhaar=Aadhaar,DoB=dob)
+        User_reg.objects.create(user=user,account_number=ac_number,phone=phone,email=Email,account_type=ac_type,gender=gender,image=Photo,address=address,Pan=pan,aadhaar=Aadhaar,DoB=dob)
         login(request,user)
         return redirect("Dashboard")
     
