@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Deposit - Bank Portal</title>
+    <link rel="icon" href="https://clipartcraft.com/images/bank-logo-icon-9.png" type="image/png">
+    <title>Deposit | CHD-BANK</title>
 </head>
 <style>
     /* Global Styles */
@@ -167,7 +168,7 @@
     </div>
     <div class="deposit-container">
         <div class="deposit-box">
-            <a href="{% url 'Dashboard'%}" class="home-button">Home</a>
+            <a href="{% url 'Dashboard'%}" class="home-button">Dashboard</a>
             <h2>Deposit</h2>
             <form method="post">
                 {% csrf_token %}

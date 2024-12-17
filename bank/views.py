@@ -1,6 +1,5 @@
 # imports 
 import decimal
-from django.http import HttpResponse
 from django.shortcuts import render , redirect
 from .models import User_reg , Transactions , Supports
 from django.contrib.auth import login , logout , authenticate
@@ -43,7 +42,6 @@ def support(request):
         Name = request.POST['name']
         email = request.POST['email']
         issue = request.POST['issue']
-
         support = Supports.objects.create(name=Name,email=email,issue=issue)
         support.save()
     return render(request,'./support.html')
@@ -107,7 +105,7 @@ def deposit(request):
         user.save()
 
         Transactions.objects.create(user=user,transaction_type="DEPOSIT",amount=amount,receiptent_no="Self",receiptent=amount,about="Deposit")
-        messages.success(request,"Transaction Successful !!")
+        messages.success(request,f"Deposit of {amount} is Successful !!")
         return redirect("Dashboard")
 
     return render(request,"./deposit.html")
@@ -128,7 +126,7 @@ def withdrawal(request):
             user.save()
 
         Transactions.objects.create(user=user,transaction_type="WITHDRAW",amount=amount,receiptent_no="Self",receiptent=amount,about="WithDraw")
-        messages.success(request,"Transaction Successful !!")
+        messages.success(request,f"Withdrawal of {amount} is Successful !!")
         return redirect("Dashboard")
     return render(request,"./Withdrawal.html")
 
@@ -159,7 +157,7 @@ def Transfer(request):
             
 
         Transactions.objects.create(user=user,transaction_type="TRANSFER",amount=amount,receiptent_no=receiptent_ac,receiptent=receiptent_transfer.balance,about=discription)
-        messages.success(request,"Transaction Successful !!")
+        messages.success(request,f"{amount} is transferred to {receiptent_transfer.user.username}")
         return redirect("Dashboard")
     return render(request,"./transfer.html")
 
