@@ -11,5 +11,6 @@ urlpatterns = [
     path("support/",views.support,name="support page"),
     path("transaction/",views.transaction,name="transaction page"),
     path("sign-up/",views.sign_up,name="Sign-up"),
+    path("change-password/",views.change_password,name="Change Password"),
     path("Logout/",views.user_logout,name="Logout"),
 ]
